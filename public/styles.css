@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-size: cover;
+    color: rgb(250, 248, 248)
+}
+
+html {
+    font-family:'Montserrat Alternates', sans-serif;
+}
+
+nav {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    height: 50px;
+    background-color: #62929E;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+a {
+    padding-right: 50px;
+    text-decoration: none;
+    color: #c2c2be;
+    font-weight: bold;
+}
+
+a:hover {
+    font-size: larger;
+    color: #F45B69;
+}
+
+a:active {
+    color: #6D5959;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 30px;
+    text-shadow: 2px 2px grey;
+}
+
+.get-weather {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.weather-city {
+    margin-right: 10px;
+    height: 20px;
+    width: 15rem;
+}
+
+button {
+    cursor: pointer;
+    border-radius: 16px;
+    width: 6rem;
+    background-color: #454545;
+    color: white;
+    border: none;
+    box-shadow: 2px 2px 2px grey;
+}
+
+.weather-section {
+    width: 50%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(169,169,169, 0.8);
+    margin: 20px auto 0;
+}
+
+.weather-title {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.temp-background {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: #7397a0;
+    border: 2px solid black;
+    margin: 10px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 2px 3px black;
+    opacity: 0.8;
+}
+
+h3 {
+    font-size: 50px;
+}
+
+.weather-info {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+}
+
+.notes-section {
+    width: 50%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(169,169,169, 0.8);
+    margin: 20px auto 0;
+}
+
+.notes-title {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.enter-note {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.new-note {
+    margin-right: 10px;
+    width: 20rem;
+}
+
+.note-button {
+    width: 5rem;
+}
+
+.notes {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+li {
+    color: black;
+    margin-top: 10px;
+}
+
+li:last-child {
+    padding-bottom: 15px;
+}
+
+h2 {
+    text-align: center;
+    color: black;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+p.copyright {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
