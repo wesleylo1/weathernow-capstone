@@ -7,10 +7,13 @@ const favoriteCallback = ({ data: favorites }) => displayFavorites(favorites)
 const errCallback = err => console.log(err)
 
 // get
-// const getAllFavorites = () => axios.get(baseURL).then(favoriteCallback).catch(errCallback)
+const getAllFavorites = () => axios.get(baseURL).then(favoriteCallback).catch(errCallback)
 
 // post
 const createFavoriteItem = body => axios.post(baseURL, body).then(favoriteCallback).catch(errCallback)
+
+// delete
+const deleteFavorite = id => axios.delete(`${baseURL}/${id}`).then(favoriteCallback).catch(errCallback)
 
 // submitting new favorite
 
@@ -39,7 +42,7 @@ form.addEventListener('submit', submitFavorite)
 
 function createFavorite(favorites) {
     const favoriteItem = document.createElement('li')
-    favoriteItem.innerHTML = `${favorites.city}, ${favorites.state}`
+    favoriteItem.innerHTML = `${favorites.city}, ${favorites.state}<button class="delete"onclick="deleteFavorite(${favorites.id})">X</button`
 
     ul.appendChild(favoriteItem)
 }
@@ -58,4 +61,4 @@ function displayFavorites(arr) {
 
 
 
-// getAllFavorites()
+getAllFavorites()

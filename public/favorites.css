@@ -64,12 +64,33 @@ input {
     width: 125px;
 }
 
+button {
+    cursor: pointer;
+    border-radius: 16px;
+    width: 5rem;
+    background-color: #454545; /* button color */
+    color: white;
+    border: none;
+    box-shadow: 2px 2px 2px grey;
+}
+
+.fave-button {
+    width: 7rem;
+}
+
 ul {
     list-style: none;
 }
 
 li {
     margin-top: 10px;
+}
+
+.delete {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
 }
 
 section {

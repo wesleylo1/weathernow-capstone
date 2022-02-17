@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
-let { defaultWeather, getWeather, getFavorites, addFavorite } = require('./controller')
+let { defaultWeather, getWeather, getFavorites, addFavorite, deleteFavorite } = require('./controller')
 let { SERVER_PORT } = process.env
 
 const app = express()
@@ -31,6 +31,10 @@ app.get('/favorites', getFavorites)
 // submit new favorite
 
 app.post('/favorites', addFavorite)
+
+// delete favorite
+
+app.delete('/favorites/:id', deleteFavorite)
 
 
 
