@@ -29,6 +29,8 @@ function submitFavorite(evt) {
     } else {
         alert('input city and state name')
     }
+    city.value = ''
+    state.value = ''
 }
 
 form.addEventListener('submit', submitFavorite)

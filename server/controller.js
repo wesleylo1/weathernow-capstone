@@ -2,7 +2,7 @@ const axios = require('axios')
 const favorites = require('./db.json')
 let { API_KEY } = process.env
 let baseURL = 'http://api.openweathermap.org'
-let idCounter = 3
+let idCounter = 1
 
 
 
@@ -56,5 +56,6 @@ module.exports = {
         favorites.push(newFavorite)
         res.status(200).send(favorites)
         idCounter++
+        
     }
 }
