@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather Web App</title>
+</head>
+<body>
+    <!--nav bar-->
+    <header>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./favorites.html">Favorites</a>
+        </nav>
+    </header>   
+
+    <!--title area-->
+    <h1>The Weather and Notes App</h1>
+    <form class="get-weather">
+        <input type="text" class="weather-city" placeholder="ex. Dallas,TX">
+        <button class="weather-button">Get Weather!</button>
+    </form>
+
+    <!--weather section-->
+    <section class="weather-section">
+        <div class="weather-title">
+            <h2 class="city-name"></h2>
+        </div>
+        <div class="temp-background">
+            <h3></h3>
+        </div>
+        <div class="weather-info">
+            <p class="weather-paragraph"></p>
+        </div>
+    </section>
+
+    <!--notes section-->
+    <section class="notes-section">
+        <div class="notes-title">
+            <h2>To Do</h2>
+            <form class="enter-note">
+                 <input type="text" class="new-note" placeholder="Enter note">
+                <button class="note-button">Add Note!</button>
+            </form>
+        </div>
+        <div class="notes">
+            <ul>
+            </ul>
+        </div>
+    </section>
+
+    <!--footer-->
+    <footer>
+        <p class="copyright">© Wesley Lo 2022 </p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
