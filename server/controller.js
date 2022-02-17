@@ -1,6 +1,8 @@
 const axios = require('axios')
+const favorites = require('./db.json')
 let { API_KEY } = process.env
 let baseURL = 'http://api.openweathermap.org'
+let idCounter = 3
 
 
 
@@ -38,5 +40,21 @@ module.exports = {
                          res.send(tempArray)
                      })
             })
+    },
+
+    getFavorites: (req,res) => {
+        res.status(200).send(favorites)
+    },
+
+    addFavorite: (req,res) => {
+        let { id, city, state } = req.body
+        let newFavorite = {
+            id: idCounter,
+            city: city,
+            state: state
+        }
+        favorites.push(newFavorite)
+        res.status(200).send(favorites)
+        idCounter++
     }
 }

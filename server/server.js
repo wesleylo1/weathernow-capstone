@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
-let { defaultWeather, getWeather } = require('./controller')
+let { defaultWeather, getWeather, getFavorites, addFavorite } = require('./controller')
 let { SERVER_PORT } = process.env
 
 const app = express()
@@ -23,6 +23,14 @@ app.get(`/api/coordinates`, defaultWeather)
 // User choice weather
 
 app.get('/api/weather', getWeather)
+
+// display favorites on default
+
+app.get('/favorites', getFavorites)
+
+// submit new favorite
+
+app.post('/favorites', addFavorite)
 
 
 

@@ -1,0 +1,12 @@
+[
+    {
+      "id": 1,
+      "city": "Dallas",
+      "state": "TX"
+    },
+    {
+      "id": 2,
+      "city": "Austin",
+      "state": "TX"
+    }
+  ]

@@ -60,6 +60,10 @@ form {
     padding: 15px;
 }
 
+input {
+    width: 125px;
+}
+
 ul {
     list-style: none;
 }
