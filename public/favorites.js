@@ -48,34 +48,38 @@ function createFavorite(favorites) {
 
     // get city info
 
-    favoriteItem.addEventListener('click',() => {
-        let city = `${favorites.city}`
+    let id = favorites.id
+
+    let city = `${favorites.city}`
         let state = `${favorites.state}`
         let cityObj = {
             cityName: city,
             stateName: state
         }
-        axios.get(`${baseURL}/weather`, {params:cityObj})
-             .then(res => {
-                 document.querySelector('h2').textContent = res.data[0]
 
-                 document.querySelector('#description').textContent = `Description: ${res.data[1]}`
+    const getFavWeather = () => axios.get(`${baseURL}/weather`, {params:cityObj})
+    .then(res => {
+        document.querySelector('h2').textContent = res.data[0]
 
-                 document.querySelector('#temperature').textContent = `Temperature: ${res.data[2]}`
+        document.querySelector('#description').textContent = `Description: ${res.data[1]}`
 
-                 document.querySelector('#feel').textContent = `Feels like: ${res.data[3]}`
+        document.querySelector('#temperature').textContent = `Temperature: ${res.data[2]}`
 
-                 document.querySelector('#min-temp').textContent = `Minimum Temperature: ${res.data[4]}`
+        document.querySelector('#feel').textContent = `Feels like: ${res.data[3]}`
 
-                 document.querySelector('#max-temp').textContent = `Maximum Temperature: ${res.data[5]}`
+        document.querySelector('#min-temp').textContent = `Minimum Temperature: ${res.data[4]}`
 
-                 document.querySelector('#humidity').textContent = `Humidity: ${res.data[6]}%`
+        document.querySelector('#max-temp').textContent = `Maximum Temperature: ${res.data[5]}`
 
-             })
-             .catch(errCallback)
+        document.querySelector('#humidity').textContent = `Humidity: ${res.data[6]}%`
+
     })
+    .catch(errCallback)
+
+    favoriteItem.addEventListener('click', getFavWeather)
 
 }
+
 
 
 // display list of favorites
