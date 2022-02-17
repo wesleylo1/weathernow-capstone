@@ -7,7 +7,7 @@ const favoriteCallback = ({ data: favorites }) => displayFavorites(favorites)
 const errCallback = err => console.log(err)
 
 // get
-const getAllFavorites = () => axios.get(baseURL).then(favoriteCallback).catch(errCallback)
+// const getAllFavorites = () => axios.get(baseURL).then(favoriteCallback).catch(errCallback)
 
 // post
 const createFavoriteItem = body => axios.post(baseURL, body).then(favoriteCallback).catch(errCallback)
@@ -58,4 +58,4 @@ function displayFavorites(arr) {
 
 
 
-getAllFavorites()
+// getAllFavorites()
