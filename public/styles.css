@@ -148,6 +148,10 @@ h3 {
     margin-top: 20px;
 }
 
+ul {
+    list-style: none;
+}
+
 li {
     color: black;
     margin-top: 10px;
