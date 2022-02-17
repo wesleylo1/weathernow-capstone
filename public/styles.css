@@ -20,7 +20,7 @@ nav {
     position: sticky;
     top: 0;
     height: 50px;
-    background-color: #62929E;
+    background-color: #62929E; 
     display: flex;
     justify-content: right;
     align-items: center;
@@ -65,7 +65,7 @@ button {
     cursor: pointer;
     border-radius: 16px;
     width: 6rem;
-    background-color: #454545;
+    background-color: #454545; /* button color */
     color: white;
     border: none;
     box-shadow: 2px 2px 2px grey;

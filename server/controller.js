@@ -3,6 +3,7 @@ let { API_KEY } = process.env
 let baseURL = 'http://api.openweathermap.org'
 
 
+
 module.exports = {
     defaultWeather: (req,res) => {
         axios(`${baseURL}/data/2.5/weather?lat=32.7762719&lon=-96.7968559&units=imperial&appid=${API_KEY}`)

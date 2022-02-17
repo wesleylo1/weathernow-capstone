@@ -36,3 +36,64 @@ a:hover {
 a:active {
     color: #6D5959;
 }
+
+h1 {
+    text-align: center;
+    color: white;
+    background-color: #F45B69;
+}
+
+main {
+    display: flex;
+    height: 100vh;
+}
+
+aside {
+    width: 20%;
+    background-color: #62929E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    padding: 15px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-top: 10px;
+}
+
+section {
+    width: 80%;
+    background-color: lightgreen;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+    padding: 15px;
+}
+
+p {
+    padding-left: 15px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+p.copyright {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+}
