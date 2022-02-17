@@ -42,7 +42,7 @@ form.addEventListener('submit', submitFavorite)
 
 function createFavorite(favorites) {
     const favoriteItem = document.createElement('li')
-    favoriteItem.innerHTML = `${favorites.city}, ${favorites.state}<button class="delete" onclick="deleteFavorite(${favorites.id})">X</button`
+    favoriteItem.innerHTML = `<span>${favorites.city}, ${favorites.state}</span><button class="delete" onclick="deleteFavorite(${favorites.id})">X</button`
 
     ul.appendChild(favoriteItem)
 
@@ -76,7 +76,8 @@ function createFavorite(favorites) {
     })
     .catch(errCallback)
 
-    favoriteItem.addEventListener('click', getFavWeather)
+    let span = document.querySelector('span')
+    span.addEventListener('click', getFavWeather)
 
 }
 
