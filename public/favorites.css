@@ -84,6 +84,8 @@ ul {
 
 li {
     margin-top: 10px;
+    color: #cecece;
+    cursor: pointer;
 }
 
 .delete {
@@ -91,6 +93,7 @@ li {
     width: 20px;
     height: 20px;
     margin-left: 10px;
+    background-color: rgb(212, 66, 66);
 }
 
 section {

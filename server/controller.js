@@ -64,5 +64,28 @@ module.exports = {
         let index = favorites.findIndex(favorite => +favorite.id === +id)
         favorites.splice(index,1)
         res.status(200).send(favorites)
+    },
+
+    favoriteWeather: (req,res) => {
+        let {cityName,stateName} = req.query
+        axios
+             .get(`${baseURL}/geo/1.0/direct?q=${cityName},${stateName},US&limit=1&appid=${API_KEY}`)
+             .then(response => {
+                let lat = response.data[0].lat
+                let lon = response.data[0].lon
+                axios.get(`${baseURL}/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY}`)
+                     .then(responses => {
+                         let tempArray = [
+                             responses.data.name,
+                             responses.data.weather[0].description,
+                             responses.data.main.temp,
+                             responses.data.main.feels_like,
+                             responses.data.main.temp_min,
+                             responses.data.main.temp_max,
+                             responses.data.main.humidity
+                            ]
+                        res.send(tempArray)
+                     })
+             })
     }
 }
