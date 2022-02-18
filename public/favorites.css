@@ -16,7 +16,7 @@ nav {
     position: sticky;
     top: 0;
     height: 50px;
-    background-color: #62929E;
+    background-color: rgb(98,146,158,0.8);
     display: flex;
     justify-content: right;
     align-items: center;
@@ -38,23 +38,19 @@ a:active {
     color: #6D5959;
 }
 
-h1 {
-    text-align: center;
-    color: white;
-    background-color: #F45B69;
-}
-
 main {
     display: flex;
     height: 100vh;
+    background-color: lightblue;
 }
 
 aside {
     width: 20%;
-    background-color: #62929E;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-right: 2px solid grey;
+    background-color: rgb(98,146,158,0.5);
 }
 
 form {
@@ -85,8 +81,14 @@ ul {
 
 li {
     margin-top: 10px;
-    color: #cecece;
+    color: #ffffff;
     cursor: pointer;
+
+}
+
+li:hover {
+    color: #F45B69;
+    font-size: large;
 }
 
 .delete {
@@ -99,24 +101,35 @@ li {
 
 section {
     width: 80%;
-    background-color: rgb(80, 141, 221);
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    padding: auto;
     max-width: 100%;
     padding-left: 150px;
-    padding-top: 50px;
+}
+
+h1 {
+    position: absolute;
+    left: 54%;
+    right: 50%;
+    color: white;
+    text-shadow: 2px 2px grey;
+    width: 200px;
+    text-align: center;
 }
 
 div {
     border: 1px solid rgb(169,169,169,0.4);
     height: 300px;
     width: 300px;
-    background-color: rgb(169,169,169, 0.4);
+    background-color: rgb(169,169,169, 0.6);
     display: flex;
     flex-direction: column;
     border-radius: 15%;
     box-shadow: 2px 2px 20px 3px black;
+}
+
+.one, .two, .three {
+    margin-top: 50px;
 }
 
 h3 {
@@ -147,4 +160,6 @@ p.copyright {
     position: absolute;
     bottom: 0;
     text-align: center;
+    color: white;
+    opacity: 0.5;
 }

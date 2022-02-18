@@ -1,5 +1,6 @@
 const form = document.querySelector('form')
 const ul = document.querySelector('ul')
+const main = document.querySelector('main')
 let clearIMG = 'url("./images/clear.jpeg")'
 let cloudIMG = 'url("./images/clouds.jpeg")'
 let drizzleIMG = 'url("./images/drizzle.jpeg")'
@@ -74,41 +75,52 @@ function createFavorite(favorites) {
         document.querySelector('h1').textContent = res.data[0]
 
         document.querySelector('#description').textContent = `${res.data[1]}`
-
-        document.querySelector('#temperature').textContent = `${res.data[2]}\u00B0`
-
-        document.querySelector('#feel').textContent = `${res.data[3]}\u00B0`
-
-        document.querySelector('#min-temp').textContent = `${res.data[4]}\u00B0`
-
-        document.querySelector('#max-temp').textContent = `${res.data[5]}\u00B0`
+        let temperature = Math.round(res.data[2])
+        document.querySelector('#temperature').textContent = `${temperature}\u00B0`
+        let feel = Math.round(res.data[3])
+        document.querySelector('#feel').textContent = `${feel}\u00B0`
+        let minTemp = Math.round(res.data[4])
+        document.querySelector('#min-temp').textContent = `${minTemp}\u00B0`
+        let maxTemp = Math.round(res.data[5])
+        document.querySelector('#max-temp').textContent = `${maxTemp}\u00B0`
 
         document.querySelector('#humidity').textContent = `${res.data[6]}%`
 
         let condition = res.data[7]
 
         if (condition === 'Thunderstorm') {
-            body.style.backgroundImage = thunderstormIMG
+            main.style.backgroundImage = thunderstormIMG
+            main.style.backgroundSize = "cover"
         } else if (condition === 'Drizzle') {
-            body.style.backgroundImage = drizzleIMG
+            main.style.backgroundImage = drizzleIMG
+            main.style.backgroundSize = "cover"
         } else if (condition === 'Rain') {
-            body.style.backgroundImage = rainIMG
+            main.style.backgroundImage = rainIMG
+            main.style.backgroundSize = "cover"
         } else if (condition === 'Snow') {
-            body.style.backgroundImage = snowIMG
+            main.style.backgroundImage = snowIMG
+            main.style.backgroundSize = "cover"
         } else if (condition === 'Clear') {
-            body.style.backgroundImage = clearIMG
+            main.style.backgroundImage = clearIMG
+            main.style.backgroundSize = "cover"
         } else if (condition === 'Clouds') {
-            body.style.backgroundImage = cloudIMG
+            main.style.backgroundImage = cloudIMG
+            main.style.backgroundSize = "cover"
         } else if (condition === 'Mist') {
-            body.style.backgroundImage = mistIMG
+            main.style.backgroundImage = mistIMG
+            main.style.backgroundSize = "cover"
         } else if (condition === 'Smoke') {
-            body.style.backgroundImage = smokeIMG
+            main.style.backgroundImage = smokeIMG
+            main.style.backgroundSize = "cover"
         } else if (condition === 'Haze') {
-            body.style.backgroundImage = hazeIMG
+            main.style.backgroundImage = hazeIMG
+            main.style.backgroundSize = "cover"
         } else if (condition === 'Dust') {
-            body.style.backgroundImage = dustIMG
+            main.style.backgroundImage = dustIMG
+            main.style.backgroundSize = "cover"
         } else if (condition === 'Fog') {
-            body.style.backgroundImage = fogIMG
+            main.style.backgroundImage = fogIMG
+            main.style.backgroundSize = "cover"
         }
 
     })
