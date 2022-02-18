@@ -1,6 +1,6 @@
 const form = document.querySelector('form')
 const ul = document.querySelector('ul')
-const baseURL = 'http://localhost:5050/favorites'
+const baseURL = '/favorites'
 
 const favoriteCallback = ({ data: favorites }) => displayFavorites(favorites)
 
