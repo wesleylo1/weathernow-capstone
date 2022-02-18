@@ -38,7 +38,7 @@ function submitFavorite(evt) {
 
     let favObj = {
         city: city.value,
-        state: state.value
+        state: state.value.toUpperCase()
     }
     if (city.value && state.value) {
     createFavoriteItem(favObj)
