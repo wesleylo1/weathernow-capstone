@@ -44,5 +44,5 @@ app.get('/favorites/weather', favoriteWeather)
 
 
 
-const port = process.env.PORT
+const port = process.env.PORT || SERVER_PORT
 app.listen(port,() => console.log(`Server running on port ${port}`))
