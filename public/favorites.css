@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 * {
     padding: 0;
@@ -98,18 +99,40 @@ li {
 
 section {
     width: 80%;
-    background-color: lightgreen;
+    background-color: rgb(80, 141, 221);
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: auto;
+    max-width: 100%;
+    padding-left: 150px;
+    padding-top: 50px;
+}
+
+div {
+    border: 1px solid rgb(169,169,169,0.4);
+    height: 300px;
+    width: 300px;
+    background-color: rgb(169,169,169, 0.4);
     display: flex;
     flex-direction: column;
+    border-radius: 15%;
+    box-shadow: 2px 2px 20px 3px black;
 }
 
-h2 {
+h3 {
     text-align: center;
     padding: 15px;
+    font-weight: 500;
 }
 
-p {
-    padding-left: 15px;
+div > p {
+    align-self: center;
+    margin: auto;
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 40px;
+    color: white;
+    text-shadow: 2px 2px 5px black;
 }
 
 footer {

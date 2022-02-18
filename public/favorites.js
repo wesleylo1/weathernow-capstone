@@ -1,6 +1,18 @@
 const form = document.querySelector('form')
 const ul = document.querySelector('ul')
+let clearIMG = 'url("./images/clear.jpeg")'
+let cloudIMG = 'url("./images/clouds.jpeg")'
+let drizzleIMG = 'url("./images/drizzle.jpeg")'
+let rainIMG = 'url("./images/rain.jpeg")'
+let snowIMG = 'url("./images/snow.jpeg")'
+let thunderstormIMG = 'url("./images/thunderstorm.jpg")'
+let mistIMG = 'url("./images/mist.jpeg")'
+let smokeIMG = 'url("./images/smoke.jpeg")'
+let hazeIMG = 'url("./images/haze.jpeg")'
+let dustIMG = 'url("./images/dust.jpeg")'
+let fogIMG = 'url("./images/fog.jpeg")'
 const baseURL = '/favorites'
+
 
 const favoriteCallback = ({ data: favorites }) => displayFavorites(favorites)
 
@@ -59,19 +71,45 @@ function createFavorite(favorites) {
 
     const getFavWeather = () => axios.get(`${baseURL}/weather`, {params:cityObj})
     .then(res => {
-        document.querySelector('h2').textContent = res.data[0]
+        document.querySelector('h1').textContent = res.data[0]
 
-        document.querySelector('#description').textContent = `Description: ${res.data[1]}`
+        document.querySelector('#description').textContent = `${res.data[1]}`
 
-        document.querySelector('#temperature').textContent = `Temperature: ${res.data[2]}`
+        document.querySelector('#temperature').textContent = `${res.data[2]}\u00B0`
 
-        document.querySelector('#feel').textContent = `Feels like: ${res.data[3]}`
+        document.querySelector('#feel').textContent = `${res.data[3]}\u00B0`
 
-        document.querySelector('#min-temp').textContent = `Minimum Temperature: ${res.data[4]}`
+        document.querySelector('#min-temp').textContent = `${res.data[4]}\u00B0`
 
-        document.querySelector('#max-temp').textContent = `Maximum Temperature: ${res.data[5]}`
+        document.querySelector('#max-temp').textContent = `${res.data[5]}\u00B0`
 
-        document.querySelector('#humidity').textContent = `Humidity: ${res.data[6]}%`
+        document.querySelector('#humidity').textContent = `${res.data[6]}%`
+
+        let condition = res.data[7]
+
+        if (condition === 'Thunderstorm') {
+            body.style.backgroundImage = thunderstormIMG
+        } else if (condition === 'Drizzle') {
+            body.style.backgroundImage = drizzleIMG
+        } else if (condition === 'Rain') {
+            body.style.backgroundImage = rainIMG
+        } else if (condition === 'Snow') {
+            body.style.backgroundImage = snowIMG
+        } else if (condition === 'Clear') {
+            body.style.backgroundImage = clearIMG
+        } else if (condition === 'Clouds') {
+            body.style.backgroundImage = cloudIMG
+        } else if (condition === 'Mist') {
+            body.style.backgroundImage = mistIMG
+        } else if (condition === 'Smoke') {
+            body.style.backgroundImage = smokeIMG
+        } else if (condition === 'Haze') {
+            body.style.backgroundImage = hazeIMG
+        } else if (condition === 'Dust') {
+            body.style.backgroundImage = dustIMG
+        } else if (condition === 'Fog') {
+            body.style.backgroundImage = fogIMG
+        }
 
     })
     .catch(errCallback)

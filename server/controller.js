@@ -83,7 +83,8 @@ module.exports = {
                              responses.data.main.feels_like,
                              responses.data.main.temp_min,
                              responses.data.main.temp_max,
-                             responses.data.main.humidity
+                             responses.data.main.humidity,
+                             responses.data.weather[0].main
                             ]
                         res.send(tempArray)
                      })
