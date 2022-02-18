@@ -67,7 +67,7 @@ module.exports = {
     },
 
     favoriteWeather: (req,res) => {
-        let {cityName,stateName} = req.query
+        let { cityName,stateName} = req.query
 
         axios
              .get(`${baseURL}/geo/1.0/direct?q=${cityName},${stateName},US&limit=1&appid=${API_KEY}`)

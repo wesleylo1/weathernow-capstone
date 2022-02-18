@@ -42,19 +42,19 @@ form.addEventListener('submit', submitFavorite)
 
 function createFavorite(favorites) {
     const favoriteItem = document.createElement('li')
-    favoriteItem.innerHTML = `<span>${favorites.city}, ${favorites.state}</span><button class="delete" onclick="deleteFavorite(${favorites.id})">X</button`
+    favoriteItem.innerHTML = `<span class="id-${favorites.id}">${favorites.city}, ${favorites.state}</span><button class="delete" onclick="deleteFavorite(${favorites.id})">X</button`
 
     ul.appendChild(favoriteItem)
 
     // get city info
 
-    let id = favorites.id
-
     let city = `${favorites.city}`
-        let state = `${favorites.state}`
-        let cityObj = {
-            cityName: city,
-            stateName: state
+    let state = `${favorites.state}`
+
+
+    let cityObj = {
+        cityName: city,
+        stateName: state
         }
 
     const getFavWeather = () => axios.get(`${baseURL}/weather`, {params:cityObj})
@@ -76,7 +76,7 @@ function createFavorite(favorites) {
     })
     .catch(errCallback)
 
-    let span = document.querySelector('span')
+    let span = document.querySelector(`.id-${favorites.id}`)
     span.addEventListener('click', getFavWeather)
 
 }
