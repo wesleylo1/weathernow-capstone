@@ -40,11 +40,13 @@ function submitFavorite(evt) {
         city: city.value,
         state: state.value.toUpperCase()
     }
-    if (city.value && state.value) {
+    if (city.value && state.value && state.value.length === 2) {
     createFavoriteItem(favObj)
     } else {
-        alert('input city and state name')
+        alert('enter correct city and state id')
     }
+
+
     city.value = ''
     state.value = ''
 }
