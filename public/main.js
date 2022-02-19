@@ -11,6 +11,7 @@ let smokeIMG = 'url("./images/smoke.jpeg")'
 let hazeIMG = 'url("./images/haze.jpeg")'
 let dustIMG = 'url("./images/dust.jpeg")'
 let fogIMG = 'url("./images/fog.jpeg")'
+const cityState = require('../server/cityStateDB.json')
 
 
 //--------------------------default weather--------------------------
@@ -60,6 +61,7 @@ function displayDallasWeather() {
 
 displayDallasWeather()
 
+
 //--------------------------submitting city for weather--------------------------
 function getCoordinates(evt) {
     evt.preventDefault()
@@ -69,10 +71,18 @@ function getCoordinates(evt) {
     let city = splitInput[0]
     let state = splitInput[1]
     state.trim()
+
+    for (let i = 0; i < length; i++) {
+        if (city != cityState[i] || state != cityState[i]) {
+            alert('please re-enter the city and state')
+        }
+    }
+
     let cityObj = {
         cityName: city,
         stateName: state
     }
+    
     axios.get('/api/weather', {params:cityObj})
          .then(res => {
             document.querySelector('.city-name').textContent = res.data[0]
@@ -114,7 +124,7 @@ function getCoordinates(evt) {
          .catch(err => console.log(err))
 }
 
-weatherBtn.addEventListener('click',getCoordinates)
+weatherBtn.addEventListener('submit',getCoordinates)
 
 //--------------------------adding a note--------------------------
 let noteForm = document.querySelector('.enter-note')
@@ -153,5 +163,3 @@ noteForm.addEventListener('submit',addNote)
 function deleteNote(event) {
     event.target.parentNode.remove()
 }
-
-//--------------------------background image--------------------------
