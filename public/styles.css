@@ -55,6 +55,10 @@ h1 {
     padding-top: 30px;
 }
 
+label {
+    margin-right: 10px;
+}
+
 .weather-city {
     margin-right: 10px;
     height: 20px;

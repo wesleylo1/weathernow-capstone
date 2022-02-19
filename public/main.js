@@ -52,6 +52,8 @@ function displayDallasWeather() {
         } else if (condition === 'Fog') {
             body.style.backgroundImage = fogIMG
         }
+
+        body.style.backgroundRepeat = "no-repeat"
     })
     .catch(err => console.log(err))
 }
