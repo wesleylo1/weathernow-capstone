@@ -71,9 +71,15 @@ function getCoordinates(evt) {
     let state = splitInput[1]
     state.trim()
 
+    let cityOne = city.split(' ')
+
+    let cityValue = cityOne.map(word => {
+        return word[0].toUpperCase() + word.substring(1)
+    }).join(' ')
+
     let cityObj = {
-        cityName: city,
-        stateName: state
+        cityName: cityValue,
+        stateName: state.toUpperCase()
     }
     
     axios.get('/api/weather', {params:cityObj})
@@ -115,7 +121,7 @@ function getCoordinates(evt) {
                 body.style.backgroundImage = fogIMG
             }
         })
-         .catch(err => console.log(err))
+         .catch(err => alert('Please enter correct city and state id'))
 }
 
 weatherBtn.addEventListener('click',getCoordinates)

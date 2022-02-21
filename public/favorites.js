@@ -40,8 +40,6 @@ function submitFavorite(evt) {
         return word[0].toUpperCase() + word.substring(1);
     }).join(' ')
 
-    
-
     let favObj = {
         city: cityValue,
         state: state.value.toUpperCase()
