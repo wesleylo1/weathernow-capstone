@@ -1,7 +1,7 @@
 const axios = require('axios')
 const favorites = require('./db.json')
 const cityState = require('./cityStateDB.json')
-let { API_KEY } = process.env
+let { API_KEY,API_KEY2 } = process.env
 let baseURL = 'http://api.openweathermap.org'
 let idCounter = 2
 
@@ -57,16 +57,25 @@ module.exports = {
     addFavorite: (req,res) => {
         let { id, city, state } = req.body
 
-
-        let newFavorite = {
-            id: idCounter,
-            city: city,
-            state: state
+        let addingFavorite = () => {
+            let newFavorite = {
+                id: idCounter,
+                city: city,
+                state: state
+            }
+            favorites.push(newFavorite)
+            res.status(200).send(favorites)
+            idCounter++
+            return
         }
-        favorites.push(newFavorite)
-        res.status(200).send(favorites)
-        idCounter++
-        
+
+        for (let i = 0; i < cityState.length; i++) {
+            if (city === cityState[i].nameCity && state === cityState[i].stateId) {
+                addingFavorite()
+                
+            }
+        }
+        res.status(400).send('delete favorite, and enter correct city and state id')
 
     },
 
@@ -82,56 +91,31 @@ module.exports = {
 
         for (let i = 0; i < cityState.length; i++) {
             if (cityName === cityState[i].nameCity && stateName === cityState[i].stateId) {
-                axios.get('https://pokeapi.co/api/v2/berry/3/')
-                     .then(response => {
-                        let answer = [
-                        response.data.firmness.name,
-                        response.data.growth_time
+                axios
+                .get(`${baseURL}/geo/1.0/direct?q=${cityName},${stateName},US&limit=1&appid=${API_KEY}`)
+                .then(response => {
+                    let lat = response.data[0].lat
+                    let lon = response.data[0].lon
+                    axios.get(`${baseURL}/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY}`)
+                    .then(responses => {
+                        let tempArray = [
+                            responses.data.name,
+                            responses.data.weather[0].description,
+                            responses.data.main.temp,
+                            responses.data.main.feels_like,
+                            responses.data.main.temp_min,
+                            responses.data.main.temp_max,
+                            responses.data.main.humidity,
+                            responses.data.weather[0].main
                         ]
-                        res.send(answer)
+                        res.status(200).send(tempArray)
+                        return
+                    })
+                    return
                 })
-            // axios
-            //  .get(`${baseURL}/geo/1.0/direct?q=${cityName},${stateName},US&limit=1&appid=${API_KEY}`)
-            //  .then(response => {
-            //     let lat = response.data[0].lat
-            //     let lon = response.data[0].lon
-            //     axios.get(`${baseURL}/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY}`)
-            //          .then(responses => {
-            //              let tempArray = [
-            //                  responses.data.name,
-            //                  responses.data.weather[0].description,
-            //                  responses.data.main.temp,
-            //                  responses.data.main.feels_like,
-            //                  responses.data.main.temp_min,
-            //                  responses.data.main.temp_max,
-            //                  responses.data.main.humidity,
-            //                  responses.data.weather[0].main
-            //                 ]
-            //             return res.send(tempArray)
-            //          })
-            //  })
+                return
             } 
         }
-
-        // axios
-        //      .get(`${baseURL}/geo/1.0/direct?q=${cityName},${stateName},US&limit=1&appid=${API_KEY}`)
-        //      .then(response => {
-        //         let lat = response.data[0].lat
-        //         let lon = response.data[0].lon
-        //         axios.get(`${baseURL}/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY}`)
-        //              .then(responses => {
-        //                  let tempArray = [
-        //                      responses.data.name,
-        //                      responses.data.weather[0].description,
-        //                      responses.data.main.temp,
-        //                      responses.data.main.feels_like,
-        //                      responses.data.main.temp_min,
-        //                      responses.data.main.temp_max,
-        //                      responses.data.main.humidity,
-        //                      responses.data.weather[0].main
-        //                     ]
-        //                 res.send(tempArray)
-        //              })
-        //      })
+        res.status(400).send('delete favorite, and enter correct city and state id')
     }
 }
