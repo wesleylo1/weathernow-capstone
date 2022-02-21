@@ -37,8 +37,15 @@ function submitFavorite(evt) {
     let city = document.querySelector('.fave-city-input')
     let state = document.querySelector('.fave-state-input')
 
+    cityOne = city.value.split(' ')
+
+
+    let cityValue = cityOne.map(word => {
+        return word[0].toUpperCase() + word.substring(1);
+    }).join(' ')
+
     let favObj = {
-        city: city.value,
+        city: cityValue,
         state: state.value.toUpperCase()
     }
 
