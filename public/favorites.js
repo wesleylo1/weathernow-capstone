@@ -13,7 +13,6 @@ let hazeIMG = 'url("./images/haze.jpeg")'
 let dustIMG = 'url("./images/dust.jpeg")'
 let fogIMG = 'url("./images/fog.jpeg")'
 const baseURL = '/favorites'
-const cityState = require('../server/cityStateDB.json')
 
 
 const favoriteCallback = ({ data: favorites }) => displayFavorites(favorites)
@@ -39,26 +38,19 @@ function submitFavorite(evt) {
 
     cityOne = city.value.split(' ')
 
-
     let cityValue = cityOne.map(word => {
         return word[0].toUpperCase() + word.substring(1);
     }).join(' ')
+
+    
 
     let favObj = {
         city: cityValue,
         state: state.value.toUpperCase()
     }
-
-    for (let i = 0; i < cityState.length; i++) {
-        if (cityValue === cityState[i] || state.value === cityState[i] || state.value.length === 2) {
-            createFavoriteItem(favObj)
-        } else {
-            alert('enter corret city and state id')
-        }
-    }
-
+    
     if (city.value && state.value && state.value.length === 2) {
-    createFavoriteItem(favObj)
+        createFavoriteItem(favObj)
     } else {
         alert('enter correct city and state id')
     }
@@ -89,58 +81,68 @@ function createFavorite(favorites) {
         stateName: state
         }
 
+
+    // get weather details
     const getFavWeather = () => axios.get(`${baseURL}/weather`, {params:cityObj})
     .then(res => {
-        document.querySelector('h1').textContent = res.data[0]
+        console.log(res.data[0],res.data[1])
 
-        document.querySelector('#description').textContent = `${res.data[1]}`
-        let temperature = Math.round(res.data[2])
-        document.querySelector('#temperature').textContent = `${temperature}\u00B0`
-        let feel = Math.round(res.data[3])
-        document.querySelector('#feel').textContent = `${feel}\u00B0`
-        let minTemp = Math.round(res.data[4])
-        document.querySelector('#min-temp').textContent = `${minTemp}\u00B0`
-        let maxTemp = Math.round(res.data[5])
-        document.querySelector('#max-temp').textContent = `${maxTemp}\u00B0`
+        // if (res.data = 'please enter correct name and state id') {
+        //     alert(res.data)
+        // } else{
+        //     return
+        // }
 
-        document.querySelector('#humidity').textContent = `${res.data[6]}%`
+        // document.querySelector('h1').textContent = res.data[0]
 
-        let condition = res.data[7]
+        // document.querySelector('#description').textContent = `${res.data[1]}`
+        // let temperature = Math.round(res.data[2])
+        // document.querySelector('#temperature').textContent = `${temperature}\u00B0`
+        // let feel = Math.round(res.data[3])
+        // document.querySelector('#feel').textContent = `${feel}\u00B0`
+        // let minTemp = Math.round(res.data[4])
+        // document.querySelector('#min-temp').textContent = `${minTemp}\u00B0`
+        // let maxTemp = Math.round(res.data[5])
+        // document.querySelector('#max-temp').textContent = `${maxTemp}\u00B0`
 
-        if (condition === 'Thunderstorm') {
-            main.style.backgroundImage = thunderstormIMG
-            main.style.backgroundSize = "cover"
-        } else if (condition === 'Drizzle') {
-            main.style.backgroundImage = drizzleIMG
-            main.style.backgroundSize = "cover"
-        } else if (condition === 'Rain') {
-            main.style.backgroundImage = rainIMG
-            main.style.backgroundSize = "cover"
-        } else if (condition === 'Snow') {
-            main.style.backgroundImage = snowIMG
-            main.style.backgroundSize = "cover"
-        } else if (condition === 'Clear') {
-            main.style.backgroundImage = clearIMG
-            main.style.backgroundSize = "cover"
-        } else if (condition === 'Clouds') {
-            main.style.backgroundImage = cloudIMG
-            main.style.backgroundSize = "cover"
-        } else if (condition === 'Mist') {
-            main.style.backgroundImage = mistIMG
-            main.style.backgroundSize = "cover"
-        } else if (condition === 'Smoke') {
-            main.style.backgroundImage = smokeIMG
-            main.style.backgroundSize = "cover"
-        } else if (condition === 'Haze') {
-            main.style.backgroundImage = hazeIMG
-            main.style.backgroundSize = "cover"
-        } else if (condition === 'Dust') {
-            main.style.backgroundImage = dustIMG
-            main.style.backgroundSize = "cover"
-        } else if (condition === 'Fog') {
-            main.style.backgroundImage = fogIMG
-            main.style.backgroundSize = "cover"
-        }
+        // document.querySelector('#humidity').textContent = `${res.data[6]}%`
+
+        // let condition = res.data[7]
+
+        // if (condition === 'Thunderstorm') {
+        //     main.style.backgroundImage = thunderstormIMG
+        //     main.style.backgroundSize = "cover"
+        // } else if (condition === 'Drizzle') {
+        //     main.style.backgroundImage = drizzleIMG
+        //     main.style.backgroundSize = "cover"
+        // } else if (condition === 'Rain') {
+        //     main.style.backgroundImage = rainIMG
+        //     main.style.backgroundSize = "cover"
+        // } else if (condition === 'Snow') {
+        //     main.style.backgroundImage = snowIMG
+        //     main.style.backgroundSize = "cover"
+        // } else if (condition === 'Clear') {
+        //     main.style.backgroundImage = clearIMG
+        //     main.style.backgroundSize = "cover"
+        // } else if (condition === 'Clouds') {
+        //     main.style.backgroundImage = cloudIMG
+        //     main.style.backgroundSize = "cover"
+        // } else if (condition === 'Mist') {
+        //     main.style.backgroundImage = mistIMG
+        //     main.style.backgroundSize = "cover"
+        // } else if (condition === 'Smoke') {
+        //     main.style.backgroundImage = smokeIMG
+        //     main.style.backgroundSize = "cover"
+        // } else if (condition === 'Haze') {
+        //     main.style.backgroundImage = hazeIMG
+        //     main.style.backgroundSize = "cover"
+        // } else if (condition === 'Dust') {
+        //     main.style.backgroundImage = dustIMG
+        //     main.style.backgroundSize = "cover"
+        // } else if (condition === 'Fog') {
+        //     main.style.backgroundImage = fogIMG
+        //     main.style.backgroundSize = "cover"
+        // }
 
     })
     .catch(errCallback)
