@@ -1,4 +1,3 @@
-const cityState = require('../server/cityStateDB.json')
 const form = document.querySelector('form')
 const ul = document.querySelector('ul')
 const main = document.querySelector('main')
@@ -14,6 +13,7 @@ let hazeIMG = 'url("./images/haze.jpeg")'
 let dustIMG = 'url("./images/dust.jpeg")'
 let fogIMG = 'url("./images/fog.jpeg")'
 const baseURL = '/favorites'
+// const cityState = require('./cityStateDB.json')
 
 
 const favoriteCallback = ({ data: favorites }) => displayFavorites(favorites)
@@ -41,6 +41,15 @@ function submitFavorite(evt) {
         city: city.value,
         state: state.value.toUpperCase()
     }
+
+    // for (let i = 0; i < cityState.length; i++) {
+    //     if (cityName === cityState[i] || stateName === cityState[i] || state.value.length === 2) {
+    //         createFavoriteItem(favObj)
+    //     } else {
+    //         alert('enter corret city and state id')
+    //     }
+    // }
+
     if (city.value && state.value && state.value.length === 2) {
     createFavoriteItem(favObj)
     } else {

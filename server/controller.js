@@ -1,5 +1,6 @@
 const axios = require('axios')
 const favorites = require('./db.json')
+const cityState = require('./cityStateDB.json')
 let { API_KEY } = process.env
 let baseURL = 'http://api.openweathermap.org'
 let idCounter = 2
@@ -23,6 +24,13 @@ module.exports = {
 
     getWeather: (req, res) => {
         let { cityName,stateName } = req.query
+
+        // for (let i = 0; i < cityState.length; i++) {
+        //     if (cityName != cityState[i] || stateName != cityState[i]) {
+        //         console.log('wrong')
+        //     } 
+        // }
+
         axios
             .get(`${baseURL}/geo/1.0/direct?q=${cityName},${stateName},US&limit=1&appid=${API_KEY}`)
             .then(response => {

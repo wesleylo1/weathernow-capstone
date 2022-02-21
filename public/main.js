@@ -11,7 +11,6 @@ let smokeIMG = 'url("./images/smoke.jpeg")'
 let hazeIMG = 'url("./images/haze.jpeg")'
 let dustIMG = 'url("./images/dust.jpeg")'
 let fogIMG = 'url("./images/fog.jpeg")'
-const cityState = require('../server/cityStateDB.json')
 
 
 //--------------------------default weather--------------------------
@@ -28,7 +27,7 @@ function displayDallasWeather() {
         let minTemp = Math.round(res.data[2])
         let maxTemp = Math.round(res.data[3])
         let condition = res.data[4]
-        weatherText.textContent = `${condition}. Low of ${minTemp}\u00B0. High of ${maxTemp}\u00B0.`
+        weatherText.textContent = `${condition}  -  Low of ${minTemp}\u00B0  -  High of ${maxTemp}\u00B0`
 
         if (condition === 'Thunderstorm') {
             body.style.backgroundImage = thunderstormIMG
@@ -72,12 +71,6 @@ function getCoordinates(evt) {
     let state = splitInput[1]
     state.trim()
 
-    for (let i = 0; i < length; i++) {
-        if (city != cityState[i] || state != cityState[i]) {
-            alert('please re-enter the city and state')
-        }
-    }
-
     let cityObj = {
         cityName: city,
         stateName: state
@@ -85,6 +78,7 @@ function getCoordinates(evt) {
     
     axios.get('/api/weather', {params:cityObj})
          .then(res => {
+
             document.querySelector('.city-name').textContent = res.data[0]
             let current = Math.round(res.data[1])
             let h3 = document.querySelector('h3')
@@ -94,7 +88,7 @@ function getCoordinates(evt) {
             let minTemp = Math.round(res.data[2])
             let maxTemp = Math.round(res.data[3])
             let condition = res.data[4]
-            weatherText.textContent = `${condition}. Low of ${minTemp}\u00B0. High of ${maxTemp}\u00B0.`
+            weatherText.textContent = `${condition}  -  Low of ${minTemp}\u00B0  -  High of ${maxTemp}\u00B0`
             input.value = ''
 
             if (condition === 'Thunderstorm') {
@@ -124,7 +118,7 @@ function getCoordinates(evt) {
          .catch(err => console.log(err))
 }
 
-weatherBtn.addEventListener('submit',getCoordinates)
+weatherBtn.addEventListener('click',getCoordinates)
 
 //--------------------------adding a note--------------------------
 let noteForm = document.querySelector('.enter-note')
