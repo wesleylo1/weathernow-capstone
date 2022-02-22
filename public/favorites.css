@@ -13,7 +13,7 @@ html {
 
 nav {
     width: 100%;
-    position: sticky;
+    position: fixed;
     top: 0;
     height: 50px;
     background-color: rgb(98,146,158,0.8);
@@ -46,6 +46,7 @@ main {
 
 aside {
     width: 20%;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,11 +119,15 @@ section {
     grid-template-columns: repeat(3,1fr);
     max-width: 100%;
     padding-left: 150px;
+    position: fixed;
+    margin-left: 20%;
+    height: 100vh;
+    margin-top: 50px;
 }
 
 h1 {
     position: absolute;
-    left: 54%;
+    left: 44%;
     right: 50%;
     color: white;
     text-shadow: 2px 2px grey;
