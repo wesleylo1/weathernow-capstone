@@ -128,6 +128,7 @@ function createFavorite(favorites) {
         } else if (condition === 'Dust') {
             main.style.backgroundImage = dustIMG
             main.style.backgroundSize = "cover"
+            main.style.backgroundPosition = '50%25%'
         } else if (condition === 'Fog') {
             main.style.backgroundImage = fogIMG
             main.style.backgroundSize = "cover"

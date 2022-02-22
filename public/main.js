@@ -49,6 +49,7 @@ function displayDallasWeather() {
             body.style.backgroundImage = hazeIMG
         } else if (condition === 'Dust') {
             body.style.backgroundImage = dustIMG
+            body.style.backgroundPosition = '50%25%'
         } else if (condition === 'Fog') {
             body.style.backgroundImage = fogIMG
         }
@@ -116,6 +117,7 @@ function getCoordinates(evt) {
                 body.style.backgroundImage = hazeIMG
             } else if (condition === 'Dust') {
                 body.style.backgroundImage = dustIMG
+                body.style.backgroundPosition = '50%25%'
             } else if (condition === 'Fog') {
                 body.style.backgroundImage = fogIMG
             }
