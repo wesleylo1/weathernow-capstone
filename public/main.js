@@ -68,8 +68,7 @@ function getCoordinates(evt) {
     let input = document.querySelector('.weather-city')
     let splitInput = input.value.split(',')
     let city = splitInput[0]
-    let state = splitInput[1]
-    state.trim()
+    let state = splitInput[1].trim()
 
     let cityOne = city.split(' ')
 
