@@ -146,7 +146,7 @@ function addNote(evt) {
     deleteBtn.style.borderRadius = '50%';
     deleteBtn.style.marginLeft = '10px';
     deleteBtn.style.color = 'white';
-    deleteBtn.style.backgroundColor = 'black';
+    deleteBtn.style.backgroundColor = '#7397a0';
     
     deleteBtn.addEventListener('click', deleteNote)
     list.appendChild(deleteBtn)
