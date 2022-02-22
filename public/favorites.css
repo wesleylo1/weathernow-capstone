@@ -60,12 +60,18 @@ form {
 input {
     width: 125px;
     text-transform: capitalize;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+input:focus {
+    outline: none;
 }
 
 .fave-state-input {
     width: 50px;
     text-transform: uppercase;
-
 }
 
 button {
