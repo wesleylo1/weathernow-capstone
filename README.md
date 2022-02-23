@@ -1,5 +1,5 @@
 # weathernow-capstone
-===========
+
 
 Weathernow is a full stack web application designed to get weather for different cities in the United States. It also lets users create a list of their favorite cities, so they can get weather updates at just a click of a button.
 
@@ -7,3 +7,5 @@ Weathernow is a full stack web application designed to get weather for different
 ![favorite](screenshots/favorite.png)
 
 #### Technologies
+
+HTML, CSS, Javascript, Open Weather API
