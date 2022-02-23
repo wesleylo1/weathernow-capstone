@@ -8,4 +8,12 @@ Weathernow is a full stack web application designed to get weather for different
 
 #### Technologies
 
-HTML, CSS, Javascript, Open Weather API
+HTML, CSS, Javascript, Weather API, MongoDB
+
+#### Installation
+
+To use the application, the developer will need to install the following dependencies and have an API key for Open Weather:
+- axios
+- cors
+- dotenv
+- express
