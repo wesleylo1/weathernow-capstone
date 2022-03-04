@@ -26,7 +26,7 @@ function displayDallasWeather() {
         let weatherText = document.querySelector('.weather-paragraph')
         let minTemp = Math.round(res.data[2])
         let maxTemp = Math.round(res.data[3])
-        let condition = res.data[4]
+        let condition = 'Smoke'//res.data[4]
         weatherText.textContent = `${condition}  -  Low of ${minTemp}\u00B0  -  High of ${maxTemp}\u00B0`
 
         if (condition === 'Thunderstorm') {
